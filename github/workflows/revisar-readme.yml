@@ -1,21 +1,22 @@
-name: Verificar existencia de README.md
+name: Crear o modificar README.md
 
 on:
   push:
     branches: [main]
 
 jobs:
-  comprobar-readme:
+  actualizar-readme:
     runs-on: ubuntu-latest
 
     steps:
       - name: Clonar el repositorio
         uses: actions/checkout@v3
 
-      - name: Verificar si README.md existe
+      - name: Escribir contenido en README.md
         run: |
-          if [ -f "README.md" ]; then
-            echo "✅ El archivo README.md existe."
-          else
-            echo "⚠️ No se encontró README.md."
-          fi
+          echo "## Bienvenido a mi proyecto 🚀" > README.md
+          echo "" >> README.md
+          echo "Este archivo ha sido actualizado automáticamente por un workflow de GitHub Actions." >> README.md
+
+      - name: Mostrar contenido del archivo
+        run: cat README.md
