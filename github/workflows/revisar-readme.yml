@@ -1,0 +1,19 @@
+name: Generar archivo de saludo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  crear-archivo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Crear archivo de texto
+        run: echo "hola mundo" > saludo.txt
+
+      - name: Mostrar contenido del archivo
+        run: cat saludo.txt
