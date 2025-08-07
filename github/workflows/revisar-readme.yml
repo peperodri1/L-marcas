@@ -3,7 +3,8 @@ name: Modificar README y subir cambios
 on:
   push:
     branches: [main]
-
+permissions:
+  contents: write  # ← NECESARIO para permitir git push
 jobs:
   actualizar-readme:
     runs-on: ubuntu-latest
